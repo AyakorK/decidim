@@ -31,6 +31,14 @@ module Decidim
           resources :attachments, except: [:show]
         end
 
+        resources :budgets do
+          resources :projects do
+            collection do
+              resources :projects_import, controller: "/decidim/budgets/admin/projects_imports", only: [:new, :create, :show]
+            end
+          end
+        end
+
         root to: "budgets#index"
       end
 

@@ -6,6 +6,10 @@ module Decidim
       class Permissions < Decidim::DefaultPermissions
         def permissions
           return permission_action if permission_action.scope != :admin
+          return permission_action unless user&.admin?
+
+          allow! if can_access?
+          allow! if can_import_projects?
 
           case permission_action.subject
           when :budget
@@ -37,6 +41,16 @@ module Decidim
         end
 
         private
+
+        def can_access?
+          permission_action.subject == :budgets_importer &&
+            permission_action.action == :read
+        end
+
+        def can_import_projects?
+          permission_action.subject == :projects &&
+            permission_action.action == :import
+        end
 
         def budget
           @budget ||= context.fetch(:budget, nil)

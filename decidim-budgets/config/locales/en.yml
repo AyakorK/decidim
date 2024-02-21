@@ -40,6 +40,12 @@ en:
             values:
               'false': Selected for implementation
               'true': Not selected for implementation
+    assemblies:
+      admin:
+        new_import:
+          accepted_types:
+            csv: CSV
+            xlsx: XLSX
     budgets:
       actions:
         attachment_collections: Folders
@@ -309,6 +315,41 @@ en:
           email_subject:
             one: You have an unfinished vote in the participatory budgeting vote
             other: You have unfinished votes in the participatory budgeting vote
+    budgets_importer:
+      actions:
+        import: Import projects to budget
+      admin:
+        projects_imports:
+          new:
+            callout:
+              help: The file must have column names 'title/en', 'description/en' (or
+                another locale which you prefer eg. 'title/ca' and 'description/ca')
+                and 'budget_amount'. Also 'scope/id', 'category/id' , 'related_proposals'
+                and 'image/url' columns are supported.
+            create: Import
+            document_legend: Join the document to import
+            title: Import projects in current budget
+      command:
+        import:
+          error:
+            decidim_budgets_project: Project creation failed on import, unknown ID
+              for the budget
+          missing:
+            budget_amount: 'Missing required field ''budget_amount'' (ID: %{resource_id})'
+            description: 'Missing required field ''description'' (ID: %{resource_id})'
+            title: 'Missing required field ''title'' (ID: %{resource_id})'
+      errors:
+        category:
+          not_found: 'Category (ID: %{id}) does not exist for project ''%{project_title}'''
+        database:
+          missing_arguments: One or multiple arguments are expected but missing, please
+            check required columns in export.
+        importer:
+          errors: Canceling import because of %{errors_count} errors
+        proposal:
+          not_found: 'Related proposals (ID: %{id}) does not exist for project ''%{project_title}'''
+      import:
+        success: Projects successfully imported
     components:
       budgets:
         actions:
@@ -358,6 +399,8 @@ en:
               disabled: Voting disabled
               enabled: Voting enabled
               finished: Voting finished
+      budgets_importer:
+        name: BudgetsImporter
     events:
       budgets:
         budget_published:
@@ -365,6 +408,13 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: The %{resource_title} budget is now active for %{participatory_space_title}.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> budget is now active for %{participatory_space_title}.
+    forms:
+      file_help:
+        file:
+          explanation: Join the import document, please note requirements below
+          import_accepted_formats: The file format must be one of CSV (separated by
+            ';'), JSON or XLSX
+          import_document: Content must be exported from a Decidim application
     orders:
       checkout:
         error: There was a problem processing your vote.

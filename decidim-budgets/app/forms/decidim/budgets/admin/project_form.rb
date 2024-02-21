@@ -79,6 +79,7 @@ module Decidim
           @category ||= categories.find_by(id: decidim_category_id)
         end
 
+        # Customization: Returns Decidim::Scope or nil
         # Finds the Scope from the given decidim_scope_id, uses the component scope if missing.
         #
         # Returns a Decidim::Scope

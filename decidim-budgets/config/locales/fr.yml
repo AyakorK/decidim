@@ -39,6 +39,12 @@ fr:
             values:
               'false': Projet sélectionné
               'true': Non sélectionné
+    assemblies:
+      admin:
+        new_import:
+          accepted_types:
+            csv: CSV
+            xlsx: XLSX
     budgets:
       actions:
         attachment_collections: Dossiers
@@ -308,6 +314,42 @@ fr:
           email_subject:
             one: Vous avez un vote inachevé sur un budget
             other: Vous avez des votes inachevés sur des budgets
+    budgets_importer:
+      actions:
+        import: Importer des projets
+      admin:
+        projects_imports:
+          new:
+            callout:
+              help: Le fichier doit avoir les colonnes 'title/fr', 'description/fr'
+                (ou une autre langue eg. 'title/en' et 'description/en') et 'budget_amount'.
+                Les colonnes 'scope/id', 'category/id' et 'related_proposals' sont
+                supportées et optionnelles.
+            create: Importer
+            document_legend: Joindre le document à importer
+            title: Importer des projets dans le budget
+      command:
+        import:
+          error:
+            decidim_budgets_project: La création du projet dans le budget à échoué,
+              ID du budget inconnu
+          missing:
+            budget_amount: 'Champs requis manquant ''budget_amount'' (ID: %{resource_id})'
+            description: 'Champs requis manquant ''description'' (ID: %{resource_id})'
+            title: 'Champs requis manquant ''title'' (ID: %{resource_id})'
+      errors:
+        category:
+          not_found: 'Categorie (ID: %{id}) n''existe pas pour le projet ''%{project_title}'''
+        database:
+          missing_arguments: Un ou plusieurs arguments sont requis et manquants, veuillez
+            vous assurer que toutes les colonnes sont présentes.
+        importer:
+          errors: Import annulé à cause de %{errors_count} erreur(s)
+        proposal:
+          not_found: 'Les propositions liées (ID: %{id}) n''existent pas pour le projet
+            ''%{project_title}'''
+      import:
+        success: Projet importé avec succès
     components:
       budgets:
         actions:
@@ -357,6 +399,8 @@ fr:
               disabled: Vote désactivé
               enabled: Votes activés
               finished: Vote terminé
+      budgets_importer:
+        name: BudgetsImporter
     events:
       budgets:
         budget_published:
@@ -364,6 +408,14 @@ fr:
           email_outro: Vous recevez cette notification car vous suivez « %{participatory_space_title} ». Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Le budget %{resource_title} est maintenant actif pour %{participatory_space_title}.
           notification_title: Le budget <a href="%{resource_path}">%{resource_title}</a> est maintenant actif pour %{participatory_space_title}.
+    forms:
+      file_help:
+        file:
+          explanation: Joindre le document à importer, notez les indications ci-dessous
+          import_accepted_formats: Le document doit avoir un format CSV (séparé par
+            des ';'), JSON ou XLSX
+          import_document: Le contenu doit être exporté d'une application Decidim
+            existante
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote.
