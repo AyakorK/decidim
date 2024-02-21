@@ -28,6 +28,14 @@ module Decidim
         def maps_enabled?
           @maps_enabled ||= current_component.settings.geocoding_enabled?
         end
+
+        def user_not_authorized_path
+          decidim.root_path
+        end
+
+        def user_has_no_permission_path
+          decidim.root_path
+        end
       end
     end
   end

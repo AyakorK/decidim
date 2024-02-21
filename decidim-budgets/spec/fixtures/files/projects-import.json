@@ -1,0 +1,95 @@
+[
+  {
+    "id": 1,
+    "category": {
+      "id": 1,
+      "name": {
+        "en": "Category example"
+      }
+    },
+    "scope": {
+      "id": 3,
+      "name": {
+        "en": "North Yvone"
+      }
+    },
+    "participatory_space": {
+      "id": 1,
+      "url": "http://localhost:3000/processes/strikebreaker-agree?participatory_process_slug=strikebreaker-agree"
+    },
+    "component": {
+      "id": 4
+    },
+    "title": {
+      "en": "Occaecati qui."
+    },
+    "description": {
+      "en": "<p>Voluptates sequi sit. Odio sed consectetur. Qui in nisi.</p>"
+    },
+    "budget": {
+      "id": 1
+    },
+    "budget_amount": 40775012,
+    "confirmed_votes": 0,
+    "comments": 2,
+    "created_at": "2023-01-12 13:24:20 UTC",
+    "url": "http://localhost:3000/processes/strikebreaker-agree/f/4/budgets/1/projects/1",
+    "related_proposals": [
+
+    ],
+    "related_proposal_titles": [
+
+    ],
+    "related_proposal_urls": [
+
+    ]
+  },
+  {
+    "id": 21,
+    "category": {
+      "id": null,
+      "name": {
+        "en": ""
+      }
+    },
+    "scope": {
+      "id": 18,
+      "name": {
+        "en": "Remediosport"
+      }
+    },
+    "participatory_space": {
+      "id": 1,
+      "url": "http://localhost:3000/processes/strikebreaker-agree?participatory_process_slug=strikebreaker-agree"
+    },
+    "component": {
+      "id": 4
+    },
+    "title": {
+      "en": "Project example 2"
+    },
+    "description": {
+      "en": "<p>Project example description 2</p>"
+    },
+    "budget": {
+      "id": 1
+    },
+    "budget_amount": 10000,
+    "confirmed_votes": 0,
+    "comments": 0,
+    "created_at": "2023-01-12 13:42:48 UTC",
+    "url": "http://localhost:3000/processes/strikebreaker-agree/f/4/budgets/1/projects/21",
+    "related_proposals": [
+      2,
+      1
+    ],
+    "related_proposal_titles": [
+      "Nihil occaecati. Similique.",
+      "Proposal example"
+    ],
+    "related_proposal_urls": [
+      "http://localhost:3000/processes/strikebreaker-agree/f/3/proposals/2",
+      "http://localhost:3000/processes/strikebreaker-agree/f/3/proposals/1"
+    ]
+  }
+]

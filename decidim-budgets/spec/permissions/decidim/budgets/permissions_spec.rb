@@ -9,7 +9,8 @@ describe Decidim::Budgets::Permissions do
   let(:context) do
     {
       current_component: budgets_component,
-      project:
+      project:,
+      current_organization:
     }
   end
   let(:budgets_component) { create(:budgets_component) }
@@ -22,6 +23,26 @@ describe Decidim::Budgets::Permissions do
     end
 
     it_behaves_like "delegates permissions to", Decidim::Budgets::Admin::Permissions
+  end
+
+  context "when user is admin" do
+    it { is_expected.to be_truthy }
+
+    context "when scope is not admin" do
+      let(:action) do
+        { scope: :foo, action: :read, subject: :budgets_importer }
+      end
+
+      it_behaves_like "permission is not set"
+    end
+  end
+
+  context "when admin access to projects import" do
+    let(:action) do
+      { scope: :admin, action: :import, subject: :projects }
+    end
+
+    it { is_expected.to be_truthy }
   end
 
   context "when scope is not public" do
